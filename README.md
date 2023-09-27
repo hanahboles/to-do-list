@@ -1,3 +1,10 @@
+Demonstrates:
+-useContext API
+-Custom hooks
+-Data persistance with mock API
+-Updating state on arrays and objects 
+-Axios
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
