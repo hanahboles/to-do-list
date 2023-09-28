@@ -7,6 +7,8 @@ function Provider({ children }) {
   
     const fetchTasks = async () => {
       // placeholder for later
+      // local storage 
+      // useCallback to be added here
     }
   
     const createTask = (title) => {

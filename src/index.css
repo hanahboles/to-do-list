@@ -1,3 +1,116 @@
+@import url(https://fonts.googleapis.com/css2?family=Hachi+Maru+Pop&family=Klee+One:wght@600&family=Yomogi&display=swap);
+
+div, h1, h2, h3 {
+    margin: 0px;
+    padding: 0px;
+ }
+
+body {
+    background-color: lightblue;
+    font-family: 'Yomogi', cursive;
+    margin: 0;
+    min-height: 100vh;
+}
+
+#root {
+    height: 100%;
+}
+
+.app {
+    height: 100%;
+    padding-top: 30px;
+    width: 100%;
+}
+
+.paper {
+    background-color: white;
+    box-shadow: 0px 0px 5px 0px #888;
+    height: 650px;
+    margin: 0 auto;
+    padding-top: 33px;
+    position: relative;
+    width: 500px;
+}
+
+.paper::before {
+    background-color: red;
+    content: '';
+    height: 100%;
+    position: absolute;
+    left: 45px;
+    width: 1px;
+    top: 0;
+}
+
+.lines {
+    background-image: repeating-linear-gradient(white 0px, white 27px, steelblue 28px);
+    display: grid;
+    grid-template-rows: repeat(25, 28px);
+    height: 100%;
+    padding-left: 55px;
+}
+
+.hole {
+    box-shadow: inset 0px 0px 2px 0px #888;
+    height: 25px;
+    width: 25px;
+    background-color: lightblue;
+    border-radius: 50%;
+    position: absolute;
+    left: 10px;
+}
+
+.hole.top {
+    top: 50px;
+}
+
+.hole.middle {
+    top: 50%;
+}
+
+.hole.bottom {
+    bottom: 50px;
+}
+
+.header {
+    text-align: center;
+    position :relative;
+    top: -12px;
+}
+
+.task-create {
+    grid-row-end: span 2;
+}
+
 .task-show {
     display: flex;
+}
+
+.form {
+    display: flex;
+}
+
+.form:hover {
+    color: lightblue;
+    transition: color .2s;
+}
+
+.input {
+    border: 0;
+    color: lightblue;
+    font-family: 'Yomogi', cursive;
+    height: 20px;
+}
+
+.button {
+    background-color: lightblue;
+    border: 0;
+    color: white;
+    font-family: 'Yomogi', cursive;
+    padding: 3px 10px;
+}
+
+.icon:hover {
+    color: lightblue;
+    transition: color .2s;
 }

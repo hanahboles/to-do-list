@@ -13,9 +13,16 @@ function App() {
 
   return (
     <div className="app">
-      <h1>To-Do List</h1>
-      <TaskCreate />
-      <TaskList />
+      <div className="paper">
+        <div className="hole top"></div>
+        <div className="hole middle"></div>
+        <div className="hole bottom"></div>
+        <div className="lines">
+          <h1 className="header">To-Do List</h1>
+          <TaskCreate />
+          <TaskList />
+        </div>
+      </div>
     </div>
   );
 }
