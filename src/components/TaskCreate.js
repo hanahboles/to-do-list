@@ -2,7 +2,7 @@ import { useState } from 'react'
 import useTasksContext from '../hooks/use-tasks-context'
 
 function TaskCreate() {
-    const [title, setTitle] = useState('Task name')
+    const [title, setTitle] = useState('')
     const [showInput, setShowInput] = useState(false)
     const { createTask } = useTasksContext()
 
@@ -14,12 +14,12 @@ function TaskCreate() {
         e.preventDefault()
         createTask(title)
         setShowInput(false)
-        setTitle('Task name')
+        setTitle('')
     }
 
     let content = showInput ? (
         <>
-            <input className="input" value={title} onChange={handleChange}></input>
+            <input className="input" placeholder="Task name" value={title} onChange={handleChange}></input>
             <button className="button">Add</button>
         </>
     ) : (
