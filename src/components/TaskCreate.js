@@ -1,10 +1,11 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import useTasksContext from '../hooks/use-tasks-context'
 
 function TaskCreate() {
     const [title, setTitle] = useState('')
     const [showInput, setShowInput] = useState(false)
     const { createTask } = useTasksContext()
+    const inputRef = useRef(null)
 
     const handleChange = (e) => {
         setTitle(e.target.value)
@@ -17,9 +18,13 @@ function TaskCreate() {
         setTitle('')
     }
 
+    useEffect(() => {
+        inputRef.current?.focus()
+    }, [showInput])
+
     let content = showInput ? (
         <>
-            <input className="input" placeholder="Task name" value={title} onChange={handleChange}></input>
+            <input className="input" placeholder="Task name" value={title} onChange={handleChange} ref={inputRef}></input>
             <button className="button">Add</button>
         </>
     ) : (
