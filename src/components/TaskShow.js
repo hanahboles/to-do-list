@@ -5,6 +5,7 @@ import useTasksContext from '../hooks/use-tasks-context'
 function TaskShow({ task }) {
     const { deleteTaskById } = useTasksContext()
     const [showEdit, setShowEdit] = useState(false)
+    const [isComplete, setIsComplete] = useState(false)
     const handleDeleteClick = () => {
         deleteTaskById(task.id)
     }
@@ -17,11 +18,15 @@ function TaskShow({ task }) {
         setShowEdit(false)
     }
 
-    let content = showEdit ? <TaskEdit onSubmit={handleTitleEdit} task={task} /> : <label for={task.id}>{task.title}</label>
+    const handleCheckmarkClick = () => {
+        setIsComplete(!isComplete)
+    }
+
+    let content = showEdit ? <TaskEdit onSubmit={handleTitleEdit} task={task} /> : <label className={isComplete ? 'complete' : ''} htmlFor={task.id}>{task.title}</label>
 
     return (
         <div className="task-show">
-            <input type="checkbox" id={task.id}></input>
+            <input className="checkbox" type="checkbox" id={task.id} checked={isComplete} onChange={handleCheckmarkClick}></input>
             {content}
             <div className="actions">
                 <span className="icon material-symbols-outlined" onClick={handleEditClick}>edit</span>

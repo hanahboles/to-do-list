@@ -92,6 +92,7 @@ body {
 
 .form:hover {
     color: lightblue;
+    cursor: pointer;
     transition: color .2s;
 }
 
@@ -106,11 +107,21 @@ body {
     background-color: lightblue;
     border: 0;
     color: white;
+    cursor: pointer;
     font-family: 'Yomogi', cursive;
     padding: 3px 10px;
 }
 
 .icon:hover {
     color: lightblue;
+    cursor: pointer;
     transition: color .2s;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.complete {
+    text-decoration: line-through;
 }
