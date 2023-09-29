@@ -1,0 +1,22 @@
+.task-show {
+    display: flex;
+}
+
+.form {
+    align-items: center;
+    display: flex;
+}
+
+.form:hover {
+    color: lightblue;
+    cursor: pointer;
+    transition: color .2s;
+}
+
+.checkbox:hover {
+    cursor: pointer;
+}
+
+.complete {
+    text-decoration: line-through;
+}

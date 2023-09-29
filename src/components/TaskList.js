@@ -8,9 +8,9 @@ function TaskList() {
     })
 
     return (
-        <div className="task-list">
+        <>
             {renderedTasks}
-        </div>
+        </>
     )
 }
 
