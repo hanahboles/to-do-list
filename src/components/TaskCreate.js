@@ -19,6 +19,11 @@ function TaskCreate() {
         setTitle('')
     }
 
+    const handleCancelClick = () => {
+        setShowInput(false)
+        setTitle('')
+    }
+
     useEffect(() => {
         inputRef.current?.focus()
     }, [showInput])
@@ -26,7 +31,8 @@ function TaskCreate() {
     let content = showInput ? (
         <>
             <input className="input" placeholder="Task name" value={title} onChange={handleChange} ref={inputRef}></input>
-            <button className="button">Add</button>
+            <button className="button primary">Add</button>
+            <button className="button secondary" onClick={handleCancelClick}>Cancel</button>
         </>
     ) : (
         <>

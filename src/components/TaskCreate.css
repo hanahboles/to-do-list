@@ -1,3 +1,7 @@
 .task-create {
     grid-row-end: span 2;
 }
+
+.form {
+    gap: 3px
+}

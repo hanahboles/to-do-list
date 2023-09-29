@@ -19,7 +19,7 @@ function TaskEdit({ task, onSubmit }) {
         <form className="task-edit" onSubmit={handleSubmit}>
             {/* <label>Title</label> */}
             <input className="input" value={newTitle} onChange={handleChange}></input>
-            <button className="button is-primary" onClick={handleSubmit}>Submit</button>
+            <button className="button primary" onClick={handleSubmit}>Submit</button>
         </form>
     )
 }
