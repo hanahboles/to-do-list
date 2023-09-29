@@ -7,7 +7,9 @@ function Provider({ children }) {
   
     const fetchTasks = useCallback(() => {
       const tasks = JSON.parse(window.localStorage.getItem('tasks'))
-      setTasks(tasks)
+      if (tasks) {
+        setTasks(tasks)
+      }
     }, [])
   
     const createTask = (title) => {
