@@ -1,15 +1,15 @@
-// import { useContext, useEffect } from 'react'
+import { useContext, useEffect } from 'react'
 import './App.css'
 import TaskCreate from './components/TaskCreate'
 import TaskList from './components/TaskList'
-// import TasksContext from './context/tasks'
+import TasksContext from './context/tasks'
 
 function App() {
-  // const { fetchTasks } = useContext(TasksContext)
+  const { fetchTasks } = useContext(TasksContext)
 
-  // useEffect(() => {
-  //   fetchTasks()
-  // }, [])
+  useEffect(() => {
+    fetchTasks()
+  }, [fetchTasks])
 
   return (
     <div className="app">
@@ -18,7 +18,7 @@ function App() {
         <div className="hole middle"></div>
         <div className="hole bottom"></div>
         <div className="lines">
-          <h1 className="header">To-Do List</h1>
+          <h1 className="header">To Do List</h1>
           <TaskCreate />
           <TaskList />
         </div>

@@ -3,9 +3,10 @@ import TaskEdit from './TaskEdit'
 import useTasksContext from '../hooks/use-tasks-context'
 
 function TaskShow({ task }) {
-    const { deleteTaskById } = useTasksContext()
+    console.log(task.complete)
+    const { deleteTaskById, updateTaskStatusById } = useTasksContext()
     const [showEdit, setShowEdit] = useState(false)
-    const [isComplete, setIsComplete] = useState(false)
+    const [isComplete, setIsComplete] = useState(task.complete)
     const handleDeleteClick = () => {
         deleteTaskById(task.id)
     }
@@ -19,6 +20,7 @@ function TaskShow({ task }) {
     }
 
     const handleCheckmarkClick = () => {
+        updateTaskStatusById(task.id, !isComplete)
         setIsComplete(!isComplete)
     }
 

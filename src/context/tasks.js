@@ -1,39 +1,51 @@
-import { createContext, useState } from 'react'
+import { createContext, useState, useCallback } from 'react'
 
 const TasksContext = createContext()
 
 function Provider({ children }) {
     const [tasks, setTasks] = useState([])
   
-    const fetchTasks = async () => {
-      // placeholder for later
-      // local storage 
-      // useCallback to be added here
-    }
+    const fetchTasks = useCallback(() => {
+      const tasks = JSON.parse(window.localStorage.getItem('tasks'))
+      setTasks(tasks)
+    }, [])
   
     const createTask = (title) => {
       const updatedTasks = [
         ...tasks,
         {
           id: Math.round(Math.random() * 9999),
-          title
+          title,
+          complete: false
         }
       ]
+      window.localStorage.setItem('tasks', JSON.stringify(updatedTasks))
       setTasks(updatedTasks)
     }
   
-    const deleteTaskById = async (id) => {  
+    const deleteTaskById = (id) => {  
       const updatedTasks = tasks.filter((task) => {
         return task.id !== id
       })
+      window.localStorage.setItem('tasks', JSON.stringify(updatedTasks))
       setTasks(updatedTasks)
     }
   
-    const editTaskById = async (id, title) => {
+    const editTaskById = (id, title) => {
       const updatedTasks = tasks.map((task) => {
         if (task.id === id) return { ...task, title}
         return task
       })
+      window.localStorage.setItem('tasks', JSON.stringify(updatedTasks))
+      setTasks(updatedTasks)
+    }
+
+    const updateTaskStatusById = (id, complete) => {
+      const updatedTasks = tasks.map((task) => {
+        if (task.id === id) return { ...task, complete}
+        return task
+      })
+      window.localStorage.setItem('tasks', JSON.stringify(updatedTasks))
       setTasks(updatedTasks)
     }
 
@@ -43,6 +55,7 @@ function Provider({ children }) {
         createTask,
         deleteTaskById,
         editTaskById,
+        updateTaskStatusById
     }
 
     return (
